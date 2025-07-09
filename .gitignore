@@ -1,0 +1,6 @@
+*.xml
+
+*.venv/
+*__pycache__/
+
+*config.yaml
