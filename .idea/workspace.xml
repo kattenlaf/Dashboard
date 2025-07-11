@@ -7,7 +7,6 @@
     <list default="true" id="6632a1b7-63db-4ce6-a3a2-416bb61859eb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/system.py" beforeDir="false" afterPath="$PROJECT_DIR$/system.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +36,7 @@
   "keyToString": {
     "Python.cpu.executor": "Debug",
     "Python.gpu.executor": "Debug",
-    "Python.main.executor": "Debug",
+    "Python.main.executor": "Run",
     "Python.pyadl.executor": "Debug",
     "Python.test.executor": "Debug",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -138,6 +137,11 @@
           <url>file://$PROJECT_DIR$/.venv/Lib/site-packages/win32com/client/util.py</url>
           <line>61</line>
           <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>41</line>
+          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
