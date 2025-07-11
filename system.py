@@ -12,6 +12,9 @@ import matplotlib.animation as animation
 import numpy as np
 from matplotlib.animation import FuncAnimation
 
+# constants
+HEADER_LEN = 40
+
 UNIT_SIZES = ["", "K", "M", "G", "T", "P"]
 
 # some details for yaml file
@@ -29,6 +32,14 @@ def get_size(bytes, suffix="B"):
         if bytes < factor:
             return f"{bytes:.2f}{unit}{suffix}"
         bytes /= factor
+
+def print_header(title):
+    print(f"*" * HEADER_LEN, {title}, "*" * HEADER_LEN)
+
+def print_main_options():
+    print("Press 1 to show monitor of cpu and ram usage")
+    print("Enter 2 to manipulate ram usage")
+    print("Enter 0 to quit")
 
 
 def get_system_info():
