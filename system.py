@@ -37,8 +37,9 @@ def print_header(title):
     print(f"*" * HEADER_LEN, {title}, "*" * HEADER_LEN)
 
 def print_main_options():
-    print("Press 1 to show monitor of cpu and ram usage")
-    print("Enter 2 to manipulate ram usage")
+    print("Enter 1 to show monitor of cpu and ram usage")
+    print("Enter 2 to reopen dashboard")
+    print("Enter 3 to close dashboard")
     print("Enter 0 to quit")
 
 

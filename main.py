@@ -1,5 +1,7 @@
+import time
+
 import system
-import multiprocessing
+import multiprocessing # https://docs.python.org/3/library/multiprocessing.html
 
 # https://www.youtube.com/watch?v=rdxt6ntfX24
 
@@ -7,13 +9,11 @@ import multiprocessing
 
 # processes
 P_GRAPH = 0
+TIME_BETWEEN_PROMPTS = 0.5
 
 def setup():
     print("Program start...")
-    # system.get_system_info()
-    # cpu.get_cpu_info()
-    #thread_instance = threading.Thread(target=cpu.get_cpu_usage(), args=None)
-    #thread_instance.start()
+    multiprocessing.set_start_method('spawn')
 
 def execute():
     running = True
@@ -39,14 +39,15 @@ def terminate_existing_process(processes, p_type):
 def main_menu_options(input, processes):
     if input == 1:
         if processes[P_GRAPH] is None:
-            p = multiprocessing.Process(target=system.plot_component_usages_graph())
+            p = multiprocessing.Process(target=system.plot_component_usages_graph)
             p.start()
             processes[P_GRAPH] = p
         else:
             print("Reopening graph process")
             processes = terminate_existing_process(processes, P_GRAPH)
-            p = multiprocessing.Process(target=system.plot_component_usages_graph())
+            p = multiprocessing.Process(target=system.plot_component_usages_graph)
             processes[P_GRAPH] = p
+            time.sleep(TIME_BETWEEN_PROMPTS)
     elif input == 2:
         print("join graph process")
         if processes[P_GRAPH] is not None:
@@ -54,8 +55,14 @@ def main_menu_options(input, processes):
             assert isinstance(p, multiprocessing.process.BaseProcess)
             p.join()
     elif input == 3:
-        print("Implement ram manipulation")
-    elif input == 4:
+        print("Attempting to close graph process")
+        if processes[P_GRAPH] is not None:
+            p = processes[P_GRAPH]
+            assert isinstance(p, multiprocessing.process.BaseProcess)
+            p.terminate()
+            processes[P_GRAPH] = None
+            print("Successfully closed process")
+    elif input == 0:
         print("Shutting down")
         return False
 
